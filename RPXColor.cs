@@ -18,7 +18,22 @@ try
 
     int k = HexScan(rpxFile, searchPattern);
 
-    Console.WriteLine($"Found at {k:X}");
+    if (k == -1)
+    {
+        throw new Exception("Hex sequence not found in file");
+    }
+
+
+    Console.WriteLine($"Hex sequence found! Location {k:X}");
+
+    Console.WriteLine("Replacing with new palette values...");
+
+
+    Array.Copy(replacePattern, 0, rpxFile, k, replacePattern.Length);
+
+    File.WriteAllBytes(output, rpxFile);
+
+    Console.WriteLine($"Complete. File {output} created.");
 
 
 }
@@ -27,7 +42,7 @@ try
 catch (Exception ex)
 {
     Console.WriteLine("Error: " + ex.Message);
-    Console.WriteLine("Usage: RPXColor.exe <input.rpx> <output.rpx>");
+    Console.WriteLine("Usage: RPXColor <input.rpx> <output.rpx>");
 }
 
 static byte[] HexStringToByteArray(string hex)
