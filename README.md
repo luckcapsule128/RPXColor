@@ -1,13 +1,13 @@
-Greatly improves the color palette for NES RPX using FirebrandX's Composite Direct palette.
+Improves the default color palette for NES RPX using FirebrandX's Composite Direct palette instead.
 
 RPX must be decompressed.
 
 Usage: RPXColor <input.rpx> <output.rpx>
 
-
+Before:
 ![Before](images/Before.png)
 
-
+After:
 ![After](images/After.png)
 
 
@@ -21,6 +21,6 @@ dotnet publish -c Release -r win-x64 --self-contained true -p:PublishSingleFile=
 
 
 Special Thanks:
-FirebrandX
-SunkenSkunk (gbatemp)
+FirebrandX,
+SunkenSkunk (gbatemp),
 Cemu team
